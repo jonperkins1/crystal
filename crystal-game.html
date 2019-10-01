@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style-crystal.css">
+    <title>Crystal Collector</title>
+</head>
+<body>
+    <header>
+        <h1>Crystal Collector</h1>
+        
+    </header>
+
+    <div id="instructions">
+
+        <p> Instructions text Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero impedit placeat laudantium inventore consequuntur voluptatem aperiam, odit aspernatur at veniam, accusantium incidunt ullam dolor optio iure. Corporis autem aliquam similique.</p>
+    </div>
+
+    <div id="number-box">
+        <p id="given-number"></p>
+        <p id="number"></p>
+
+    </div>
+
+    <div id ="wins-losses">
+        <p id="wins">Wins: <br><br></p>
+        <p id="losses">Losses: </p>
+        
+
+
+    </div>
+    
+    <div id="crystals">
+            <img id="pink" value="1" class="buttons" src="assets/images/magenta_crystal-512.png">
+            <img id="purple" value="2" class="buttons" src="assets/images/minerals_purple_stone-512.png">
+            <img id="green" value="3" class="buttons" src="assets/images/download.png">
+            <img id="blue" value="4" class="buttons" src="assets/images/images.jpg">
+
+    </div>
+
+    <div id="Total Score">
+
+        <p id="score"> Your total score is:</p>
+
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script>
+
+
+//set up a status for when each button has not been been clicked the first time
+
+
+startValue = 0
+clickStatusPink = 0
+clickStatusPurple = false
+clickStatusGreen = false
+clickStatusBlue = false
+
+// once a button has been clicked, it now becomes a button to add the
+//first value generated to the number total
+
+//set up code to generate a random number between 19-120
+
+var randomNumber = Math.floor(Math.random() * 101) +19;
+console.log(randomNumber);
+
+//set up code to generate random numbers for each crystal
+
+var crystal1 = Math.floor(Math.random() * 12) +1;
+var pinkClicked = startValue + crystal1
+
+var crystal2 = Math.floor(Math.random() * 12) +1;
+var crystal3 = Math.floor(Math.random() * 12) +1;
+var crystal4 = Math.floor(Math.random() * 12) +1;
+
+
+
+console.log(crystal1);
+console.log(crystal2);
+console.log(crystal3);
+console.log(crystal4);
+
+//set up condition to check if the button has been pressed. if it has, use the value that was already outputted
+//assign a button to each crystal img 
+//print random number to screen
+//set up onclick to register the crystal the user chooses
+
+$(document).ready(function() {
+
+
+
+$("#given-number").text(randomNumber); 
+
+$(".buttons").on("click", function() {
+    if (startValue = 0) {
+     $("#number").text(startValue + crystal1);
+     clickStatusPink = 1;
+
+    
+    }
+    if (clickStatusPink >= 1) {
+        $(".buttons").on("click", function() {
+        $("#number").text(pinkClicked);
+
+    })
+    }
+})
+
+     
+});
+
+
+
+console.log(crystal1)
+console.log(pinkClicked)
+console.log(pinkClicked)
+
+
+//print value of the crystal to number box
+//set up addition function to add each crystal clicked to the current value
+//set up function and variable for win conditons 
+//set up loss condition 
+// setup restart upon win/loss
+
+
+
+
+    </script>
+
+</body>
+
+
+</html>

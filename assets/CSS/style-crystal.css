@@ -1,0 +1,58 @@
+body {
+    background: aliceblue;
+    background-image: url("https://i.pinimg.com/originals/84/a9/dc/84a9dc39f14a20028570e2a145d7de2f.jpg");
+}
+
+
+h1 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background: aliceblue;
+    padding: 25px;
+    font-size: 40px;
+    width: 170px;
+}
+
+#instructions {
+    background: slategray;
+    color: white;
+    width: 400px;
+    line-height: 1.5;
+    font-size: 20px;
+    padding: 10px;
+}
+
+#number-box {
+    background: powderblue;
+    width: 300px;
+    height: 150px;
+    float: left;
+}
+
+#wins-losses {
+    background: cyan;
+    width: 100px;
+    height: 150px;
+    float: left;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#crystals {
+    margin: 8px;
+    margin-top: 50px;
+    float: none;
+    clear: both;
+}
+
+img {
+    width: 100px;
+    height:100px;
+
+}
+
+#score {
+    background: gainsboro;
+    width: 300px;
+    height: 150px;
+    float: left;
+}
