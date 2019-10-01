@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Crystal Collector</title>
+</head>
+<body>
+    <header>
+        <h1>Crystal Collector</h1>
+        
+    </header>
+
+    <div id="instructions">
+
+        <p> You will be given a random number.
+                Clicking on a crystal will add a specific amount of points to your total score.
+                You win the game by matching your total user score to the game score, you lose the game if your total score goes above the game score.
+                 </p>
+    </div>
+
+    <div id="number-box">
+        <p id="given-number"></p>
+        
+
+    </div>
+
+    <div id ="wins-losses">
+        <p id="wins">Wins: <br><br></p>
+        <p id="losses">Losses: </p>
+        
+
+
+    </div>
+    
+    <div id="crystals">
+            <img id="pink" value="1" class="buttons" src="assets/images/magenta_crystal-512.png">
+            <img id="purple" value="2" class="buttons" src="assets/images/minerals_purple_stone-512.png">
+            <img id="green" value="3" class="buttons" src="assets/images/download.png">
+            <img id="blue" value="4" class="buttons" src="assets/images/images.jpg">
+
+    </div>
+
+    <div class="score">
+        <p> Your total score is: </p>
+
+        <p id="number"></p>
+
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+<script>
+
+
+//set up a status for when each button has not been been clicked the first time
+
+
+startValue = 0
+
+
+
+// once a button has been clicked, it now becomes a button to add the
+//first value generated to the number total
+
+//set up code to generate a random number between 19-120
+
+var randomNumber = Math.floor(Math.random() * 101) +19;
+
+
+//set up code to generate random numbers for each crystal
+
+var pink = Math.floor(Math.random() * 12) +1;
+var purple = Math.floor(Math.random() * 12) +1;
+var green = Math.floor(Math.random() * 12) +1;
+var blue = Math.floor(Math.random() * 12) +1;
+
+
+var winCount = 0;
+var lossCount = 0;
+
+
+
+
+//set up condition to check if the button has been pressed. if it has, use the value that was already outputted
+//assign a button to each crystal img 
+//print random number to screen
+//set up onclick to register the crystal the user chooses
+
+$(document).ready(function() {
+
+
+
+$("#given-number").text(randomNumber);
+
+
+function resetGame() {
+    startValue = 0;
+    randomNumber = Math.floor(Math.random() * 101) +19;
+    pink = Math.floor(Math.random() * 12) +1;
+    purple = Math.floor(Math.random() * 12) +1;
+    green = Math.floor(Math.random() * 12) +1;
+    blue = Math.floor(Math.random() * 12) +1;
+    $("#given-number").text(randomNumber);
+    $("#number").text(startValue);
+    console.log(startValue);
+    console.log(randomNumber);
+    
+
+    
+}
+
+function winGame() {
+    alert("You Win! Play Again?")
+    winCount = winCount + 1;
+    $("#wins").text ("Wins: " + winCount);
+    resetGame();
+
+
+}
+
+function loseGame() {
+    alert("You Lose! Play Again?")
+    lossCount = lossCount + 1;
+    $("#losses").text ("Losses: " + lossCount);
+    resetGame();
+}
+
+
+$("#pink").on("click", function() {
+    startValue = startValue + pink
+     $("#number").text(startValue);
+
+     if (startValue === randomNumber)
+     winGame();
+     else if (startValue > randomNumber)
+     loseGame();
+     
+    })
+
+$("#purple").on("click", function() {
+    startValue = startValue + purple
+     $("#number").text(startValue);
+     if (startValue === randomNumber)
+     winGame();
+     else if (startValue > randomNumber)
+     loseGame();
+     
+    })
+
+$("#green").on("click", function() {
+    startValue = startValue + green
+     $("#number").text(startValue);
+     if (startValue === randomNumber)
+     winGame();
+     else if (startValue > randomNumber)
+     loseGame();
+     
+    })
+
+$("#blue").on("click", function() {
+    startValue = startValue + blue
+     $("#number").text(startValue);
+     if (startValue === randomNumber)
+     winGame();
+     else if (startValue > randomNumber)
+     loseGame();
+     
+    })
+
+
+  //else if (clickStatus = 1) {
+  //      $("#number").text(pinkClicked);
+  //      pinkClicked === startValue + pinkClicked;
+   //     clickStatus === 2;
+   // }    
+//
+   // else if (clickStatus > 1) {
+ //       $("#number").text(pinkClicked);
+ //       pinkClicked === startValue + pinkClicked;
+ //   }  
+ //  })
+//
+//   $("#purple").on("click", function() {
+//    
+//     $("#number").text(purple + startValue);
+//     
+//    }
+ // else {
+ //       $("#number").text(purpleClicked);
+  //  }    
+ //  })
+//
+  // $("#green").on("click", function() {
+  //  if (clickStatus === 0) {
+  //   $("#number").text(green);
+ //    clickStatus += 1;
+ //    startValue = startValue + greenClicked;
+  //  }
+ // else {
+ //       $("#number").text(greenClicked);
+ //   }    
+ //  })
+//
+ //  $("#blue").on("click", function() {
+ //   if (clickStatus === 0) {
+  //   $("#number").text(blue);
+  //   clickStatus += 1;
+  //   startValue = startValue + blueClicked;
+ //   }
+ // else {
+ //       $("#number").text(blueClicked);
+  //  }   
+   });
+
+
+
+     
+
+
+
+
+
+
+//print value of the crystal to number box
+//set up addition function to add each crystal clicked to the current value
+//set up function and variable for win conditons 
+//set up loss condition 
+// setup restart upon win/loss
+
+
+
+
+    </script>
+
+</body>
+
+
+</html>
