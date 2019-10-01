@@ -50,9 +50,15 @@ img {
 
 }
 
-#score {
+.score {
     background: gainsboro;
     width: 300px;
     height: 150px;
     float: left;
+}
+
+#number {
+    font-size: 50px;
+    font-weight: bold;
+    
 }

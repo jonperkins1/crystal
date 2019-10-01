@@ -20,7 +20,7 @@
 
     <div id="number-box">
         <p id="given-number"></p>
-        <p id="number"></p>
+        
 
     </div>
 
@@ -40,9 +40,10 @@
 
     </div>
 
-    <div id="Total Score">
+    <div class="score">
+        <p> Your total score is: </p>
 
-        <p id="score"> Your total score is:</p>
+        <p id="number"></p>
 
     </div>
     <script
@@ -58,11 +59,6 @@
 startValue = 0
 
 
-clickStatus = 0
-clickStatusPink = 0
-clickStatusPurple = 0
-clickStatusGreen = 0
-clickStatusBlue = 0
 
 // once a button has been clicked, it now becomes a button to add the
 //first value generated to the number total
@@ -70,22 +66,18 @@ clickStatusBlue = 0
 //set up code to generate a random number between 19-120
 
 var randomNumber = Math.floor(Math.random() * 101) +19;
-console.log(randomNumber);
+
 
 //set up code to generate random numbers for each crystal
 
 var pink = Math.floor(Math.random() * 12) +1;
-var pinkClicked = startValue + pink
-
 var purple = Math.floor(Math.random() * 12) +1;
-var purpleClicked = startValue + purple
-
 var green = Math.floor(Math.random() * 12) +1;
-var greenClicked = startValue + green
-
 var blue = Math.floor(Math.random() * 12) +1;
-var blueClicked = startValue + blue
 
+
+var winCount = 0;
+var lossCount = 0;
 
 
 
@@ -99,13 +91,84 @@ $(document).ready(function() {
 
 
 
-$("#given-number").text(randomNumber); 
+$("#given-number").text(randomNumber);
+
+
+function resetGame() {
+    startValue = 0;
+    randomNumber = Math.floor(Math.random() * 101) +19;
+    pink = Math.floor(Math.random() * 12) +1;
+    purple = Math.floor(Math.random() * 12) +1;
+    green = Math.floor(Math.random() * 12) +1;
+    blue = Math.floor(Math.random() * 12) +1;
+    $("#given-number").text(randomNumber);
+    $("#number").text(startValue);
+    console.log(startValue);
+    console.log(randomNumber);
+    
+
+    
+}
+
+function winGame() {
+    alert("You Win! Play Again?")
+    winCount = winCount + 1;
+    $("#wins").text ("Wins: " + winCount);
+    resetGame();
+
+
+}
+
+function loseGame() {
+    alert("You Lose! Play Again?")
+    lossCount = lossCount + 1;
+    $("#losses").text ("Losses: " + lossCount);
+    resetGame();
+}
+
 
 $("#pink").on("click", function() {
     startValue = startValue + pink
      $("#number").text(startValue);
+
+     if (startValue === randomNumber)
+     winGame();
+     else if (startValue > randomNumber)
+     loseGame();
      
     })
+
+$("#purple").on("click", function() {
+    startValue = startValue + purple
+     $("#number").text(startValue);
+     if (startValue === randomNumber)
+     winGame();
+     else if (startValue > randomNumber)
+     loseGame();
+     
+    })
+
+$("#green").on("click", function() {
+    startValue = startValue + green
+     $("#number").text(startValue);
+     if (startValue === randomNumber)
+     winGame();
+     else if (startValue > randomNumber)
+     loseGame();
+     
+    })
+
+$("#blue").on("click", function() {
+    startValue = startValue + blue
+     $("#number").text(startValue);
+     if (startValue === randomNumber)
+     winGame();
+     else if (startValue > randomNumber)
+     loseGame();
+     
+    })
+
+
   //else if (clickStatus = 1) {
   //      $("#number").text(pinkClicked);
   //      pinkClicked === startValue + pinkClicked;
@@ -148,17 +211,14 @@ $("#pink").on("click", function() {
  // else {
  //       $("#number").text(blueClicked);
   //  }   
-   })
+   });
 
 
 
      
-;
 
 
-console.log(startValue)
 
-console.log(pinkClicked)
 
 
 
