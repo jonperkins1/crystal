@@ -26,6 +26,7 @@ h1 {
     width: 300px;
     height: 150px;
     float: left;
+    font-size: 40px;
 }
 
 #wins-losses {
@@ -35,6 +36,7 @@ h1 {
     float: left;
     margin-left: 20px;
     margin-bottom: 20px;
+    
 }
 
 #crystals {
